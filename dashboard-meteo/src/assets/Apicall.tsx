@@ -1,14 +1,14 @@
 import axios from "axios";
 import type { WeatherAPIResponse, WeatherCardData } from "./WeatherCard";
 
-// ⚠️ Définis ta clé dans un .env.local : VITE_OPENWEATHER_KEY=xxxx
+// ⚠️ Définis ta clé dans un .env.local : VITE_API_KEY=xxxx
 const API_KEY = import.meta.env.VITE_API_KEY as string;
-const BASE_URL = import.meta.env.VITE_URL as string;
+const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
 if (!API_KEY) {
   // Ça évite de chercher 2h si la clé n'est pas chargée
   // (s'affichera dans la console au démarrage dev)
-  console.warn("⚠️ VITE_OPENWEATHER_KEY manquante dans .env.local");
+  console.warn("⚠️ VITE_API_KEY manquante dans .env.local");
 }
 
 // --- Helpers -------------------------------------------------------
